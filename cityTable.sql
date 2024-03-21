@@ -11,11 +11,10 @@
 --     CONNECTION LIMIT = -1
 --     IS_TEMPLATE = False;
 
--- CREATE TABLE  (
+-- CREATE TABLE israel_citys (
 -- id SERIAL PRIMARY KEY,
 -- name VARCHAR(50),
 -- latitude FLOAT,
--- longitude FLOAT,
--- cityId INT)
+-- longitude FLOAT)
 
 SELECT * FROM israel_citys
