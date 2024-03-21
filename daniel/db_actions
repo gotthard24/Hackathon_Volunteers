@@ -1,4 +1,5 @@
 import psycopg2
+import random
 
 HOSTNAME = 'localhost'
 USERNAME = 'postgres'
@@ -33,7 +34,7 @@ def create_insert_query(name,url,description):
     return query
 
 def add_org_to_db(query, cities):
-    for i in range(len(cities)):
+    for i in range(random.randint(100, 150)):
         execute_query(query,(cities[i][1],))
     
         
