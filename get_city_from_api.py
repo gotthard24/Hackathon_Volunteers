@@ -34,18 +34,18 @@ while True:
 # print(all_results[0]['cityId'])
 
 
-for x in range(len(all_results)):
-    try:
-        connection=psycopg2.connect(host=HOSTNAME,user=USERNAME,password=PASSWORD,dbname=DATABASE)
-        cursor=connection.cursor()
-        query = f"""INSERT INTO israel_citys (name, latitude, longitude, cityid)
-        VALUES (%s, %s, %s, %s)"""
-        cursor.execute(query, (all_results[x]['name'], all_results[x]['location']['latitude'],all_results[x]['location']['longitude'],all_results[x]['cityId']))
-        connection.commit()
-    except psycopg2.Error as e:
-        print("Eror while conecting!")
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
+# for x in range(len(all_results)):
+#     try:
+#         connection=psycopg2.connect(host=HOSTNAME,user=USERNAME,password=PASSWORD,dbname=DATABASE)
+#         cursor=connection.cursor()
+#         query = f"""INSERT INTO israel_citys (name, latitude, longitude, cityid)
+#         VALUES (%s, %s, %s, %s)"""
+#         cursor.execute(query, (all_results[x]['name'], all_results[x]['location']['latitude'],all_results[x]['location']['longitude'],all_results[x]['cityId']))
+#         connection.commit()
+#     except psycopg2.Error as e:
+#         print("Eror while conecting!")
+#     finally:
+#         if connection:
+#             cursor.close()
+#             connection.close()
 
