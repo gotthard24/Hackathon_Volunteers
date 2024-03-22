@@ -1,4 +1,5 @@
 import re
+import organisations
 
 def is_int(var):
     while True:
@@ -46,21 +47,21 @@ class Main():
         """
         print(output)
         
-    def option_choice(self, *func):
+    def option_choice(self, *funcs):
         while True:
             self.show_options()
             userinput = input("> ").lower()
             if userinput in self.options:
                 if userinput == 'm':
-                    pass
+                    funcs[0]
                 elif userinput == 'o':
-                    pass
+                    funcs[1]
                 elif userinput == 's':
-                    pass
+                    funcs[2]
                 elif userinput == 'a':
-                    pass
+                    funcs[3]
                 elif userinput == 'w':
-                    pass
+                    funcs[4]
                 elif userinput == 'q':
                     break
             else:
@@ -79,7 +80,7 @@ class Main():
                     user_city = self.city_input()
                     self.option_choice()
                 elif userinput == 'd':
-                    pass
+                    self.option_choice()
                 elif userinput == 'q':
                     break
             else:
