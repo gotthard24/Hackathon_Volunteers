@@ -20,7 +20,9 @@ def is_valid_str(var):
             print("It's not a valid string. Please try again")
             var = input("Enter the string:\n>  ")
         
-            
+def remove_special_characters(string):
+    return re.sub(r'[^a-zA-Z0-9\s]', '', string)    
+        
 class Main():
     MILITARY = 'Military'
     HEALTH = 'Health'
@@ -61,11 +63,12 @@ class Main():
             print('\n')
             
     def print_volunteer_result(self, list):
-        print("\nAvailable organistions to volunteer in your city\n")
+        print("\nAvailable organistions to volunteer in closest cities\n")
         for item in list:
-            for i in range(len(item)):
-                print(item[i], end= "   ")
-            print('\n')
+            if item != None:
+                for i in range(len(item)):
+                    print(item[i], end= " ")
+            print('\n\n\n')
         
     def option_choice(self, vol_or_donate, *funcs):
         options_mapping = {
@@ -84,7 +87,7 @@ class Main():
                 if vol_or_donate == 'donate':
                     self.print_donate_result(result)
                 else:
-                    pass
+                    self.print_volunteer_result(result)
                 break
             elif userinput == 'q':
                 break
@@ -112,7 +115,8 @@ class Main():
                        print(city) 
             elif len(city) > 1:
                 print(f"Oops, city {user_city} not found\n Maybe you meant any of this \n{city}") 
-            else:                    
+            else:     
+                print("One minute, Your request is being processed ")               
                 cities = lonlendelon.make_result_list(user_city)
                 return cities
                     
@@ -126,18 +130,14 @@ class Main():
                     final_cities = []
                     distance = 0
                     counter = 0
-                    print("One minute, Your request is being processed ")
                     while distance < 0.2:                   
-                        final_cities.append(cities_by_distance[counter][0])
+                        final_cities.append(remove_special_characters(cities_by_distance[counter][0]))
                         distance = cities_by_distance[counter][1]
-                        counter += 1
-                    print("One minute, Your request is being processed ")
-                    for city in final_cities:
-                        print(city)                   
-                        # self.option_choice('vol',o.select_volunteers(user_city, self.MILITARY),
-                        #                         o.select_volunteers(user_city, self.HEALTH),
-                        #                         o.select_volunteers(user_city, self.SOCIAL),
-                        #                         o.select_volunteers(user_city, self.ANIMAL))
+                        counter += 1                  
+                    self.option_choice('vol',o.select_volunteers(final_cities, self.MILITARY),
+                                             o.select_volunteers(final_cities, self.HEALTH),
+                                             o.select_volunteers(final_cities, self.SOCIAL),
+                                             o.select_volunteers(final_cities, self.ANIMAL))
                 elif userinput == 'd':
                     self.option_choice('donate',o.select_donate(self.MILITARY),
                                                 o.select_donate(self.HEALTH),

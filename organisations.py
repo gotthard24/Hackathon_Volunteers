@@ -39,14 +39,17 @@ def select_city(city):
     result = execute_query(query)
     return result
         
-def select_volunteers(city, topic):
-    query = f"""
-        SELECT DISTINCT * FROM organisations
-        WHERE topic = '{topic}' AND city ILIKE '%{city}%';
-        """
-        
-    result = execute_query(query)
-    return result
+def select_volunteers(cities, topic):
+    results = []
+    for city in cities:
+        query = f"""
+            SELECT DISTINCT name, city, topic, url, discription FROM organisations
+            WHERE topic = '{topic}' AND city ILIKE '%{city}%';
+            """
+        result = execute_query(query)
+        results.append(result)
+            
+    return results
 
 def select_donate(topic):
     query = f"""
