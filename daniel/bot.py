@@ -1,10 +1,11 @@
 from telegram.ext import Updater, CommandHandler
 
+TOKEN = "7044408816:AAE-A9JwCxXjZkjuFRAXfE9cmx9AomdloP0"
 def start(update, context):
     update.message.reply_text('Hello there')
 
 def main():
-    updater = Updater("7044408816:AAE-A9JwCxXjZkjuFRAXfE9cmx9AomdloP0", use_context=True)
+    updater = Updater(TOKEN, use_context=True)
 
     dp = updater.dispatcher
 
