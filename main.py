@@ -1,4 +1,5 @@
 import re
+import lonlendelon 
 import organisations
 
 def is_int(var):
@@ -86,5 +87,11 @@ class Main():
             else:
                 print("\nThere is no such option\nPlease try again")
                 
-support = Main()
-support.main()
+# support = Main()
+# support.main()
+# cities = Lonlendelon.make_result_list("Haifa")
+# for city in cities:
+#     print(city)
+
+# print(lonlendelon.make_result_list('Tel Aviv'))
+organisations.test()
