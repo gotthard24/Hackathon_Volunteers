@@ -3,8 +3,8 @@ import random
 
 HOSTNAME = 'localhost'
 USERNAME = 'postgres'
-PASSWORD = '474747kk'
-DATABASE = 'W4Hackathon'
+PASSWORD = 'rfrfirf1234'
+DATABASE = 'Israel_citys'
 ORGS = 'organisations'
 CITIES = 'israel_citys'
 

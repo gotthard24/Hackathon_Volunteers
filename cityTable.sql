@@ -13,8 +13,10 @@
 
 -- CREATE TABLE israel_citys (
 -- id SERIAL PRIMARY KEY,
--- name VARCHAR(50),
+-- name VARCHAR,
 -- latitude FLOAT,
 -- longitude FLOAT)
+
+-- DROP TABLE israel_citys
 
 SELECT * FROM israel_citys
