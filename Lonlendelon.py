@@ -47,3 +47,11 @@ def make_result_list(city_name):
         newdik[city]=abs(far_index)
     result=list(newdik.items())
     return sorted(result, key=lambda x:x[1])
+
+def test():
+    print("I'm in!")
+
+
+
+
+# print(find_latitude('Haifa'))
