@@ -33,7 +33,7 @@ def add_org_to_db(query, cities):
 def select_city(city):
     query = f"""
         SELECT DISTINCT name FROM israel_citys
-        WHERE name ILIKE '%{city}%';
+        WHERE name ILIKE '%{city}';
         """
         
     result = execute_query(query)
@@ -43,7 +43,7 @@ def select_volunteers(cities, topic):
     results = []
     for city in cities:
         query = f"""
-            SELECT DISTINCT name, city, topic, url, discription FROM organisations
+            SELECT DISTINCT name, city, url, discription FROM organisations
             WHERE topic = '{topic}' AND city ILIKE '%{city}%';
             """
         result = execute_query(query)

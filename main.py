@@ -62,13 +62,15 @@ class Main():
                 print(item[i], end= "   ")
             print('\n')
             
-    def print_volunteer_result(self, list):
-        print("\nAvailable organistions to volunteer in closest cities\n")
-        for item in list:
-            if item != None:
-                for i in range(len(item)):
-                    print(item[i], end= " ")
-            print('\n\n\n')
+    def print_volunteer_result(self, list_of_lists):
+        print("\nAvailable organisations to volunteer in closest cities\n")
+        for tuple_list in list_of_lists:
+            if tuple_list is not None: 
+                for tuple in tuple_list:
+                    print(f"Organisation: {tuple[0]}")
+                    print(f"Location: {tuple[1]}") 
+                    print(f"Link for volunteers: {tuple[2]}")  
+                    print(f"Description: {tuple[3]}\n")
         
     def option_choice(self, vol_or_donate, *funcs):
         options_mapping = {
@@ -114,7 +116,7 @@ class Main():
                     if city != None:
                        print(city) 
             elif len(city) > 1:
-                print(f"Oops, city {user_city} not found\n Maybe you meant any of this \n{city}") 
+                print(f"Oops, there are more then one\n Maybe you meant any of this \n{city}") 
             else:     
                 print("One minute, Your request is being processed ")               
                 cities = lonlendelon.make_result_list(user_city)
@@ -150,7 +152,3 @@ class Main():
                 
 support = Main()
 support.main()
-# print(support.city_input())
-
-# print(lonlendelon.make_result_list('Tel Aviv'))
-# organisations.test()
