@@ -49,8 +49,3 @@ def make_result_list(city_name):
 
 def test():
     print("I'm in!")
-
-
-
-
-# print(find_latitude('Haifa'))
