@@ -33,7 +33,16 @@ def add_org_to_db(query, cities):
 def select_city(city):
     query = f"""
         SELECT DISTINCT name FROM israel_citys
-        WHERE name ILIKE '%{city}';
+        WHERE name ILIKE '%{city}%';
+        """
+        
+    result = execute_query(query)
+    return result
+
+def precise_select_city(city):
+    query = f"""
+        SELECT DISTINCT name FROM israel_citys
+        WHERE name = '{city}';
         """
         
     result = execute_query(query)
