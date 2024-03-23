@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk 
 from tkinter.scrolledtext import ScrolledText
 import os
+import main
 import organisations as o
 import re
 import lonlendelon

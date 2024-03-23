@@ -34,8 +34,6 @@ def select_city(city):
     query = f"""
         SELECT DISTINCT name FROM israel_citys
         WHERE name ILIKE '%{city}%';
-<<<<<<< HEAD
-=======
         """
         
     result = execute_query(query)
@@ -45,7 +43,6 @@ def precise_select_city(city):
     query = f"""
         SELECT DISTINCT name FROM israel_citys
         WHERE name = '{city}';
->>>>>>> 6bd7d3b3ce21340931967cbef674f3ad7874dc1b
         """
         
     result = execute_query(query)
