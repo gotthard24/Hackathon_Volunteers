@@ -1,9 +1,9 @@
 import random
-import configdk
+import config
 
 def execute_query(query, parameters=None):
         results = []
-        connection = configdk.create_connection()
+        connection = config.create_connection()
         cursor = connection.cursor()       
         if parameters:
             cursor.execute(query, parameters)
@@ -20,7 +20,7 @@ def execute_query(query, parameters=None):
         
 def create_insert_query(name,topic,url,donate_url,description):
     query = f"""
-        INSERT INTO {configdk.ORGS} (name, city, topic, url, donate_url,discription)
+        INSERT INTO {config.ORGS} (name, city, topic, url, donate_url,discription)
         VALUES
             ('{name}', %s,'{topic}', '{url}','{donate_url}', '{description}');
         """
@@ -33,7 +33,7 @@ def add_org_to_db(query, cities):
 def select_city(city):
     query = f"""
         SELECT DISTINCT name FROM israel_citys
-        WHERE name ILIKE '%{city}';
+        WHERE name ILIKE '%{city}%';
         """
         
     result = execute_query(query)

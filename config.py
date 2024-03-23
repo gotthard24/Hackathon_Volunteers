@@ -4,6 +4,8 @@ HOSTNAME = 'localhost'
 USERNAME = 'postgres'
 PASSWORD = 'rfrfirf1234'
 DATABASE = 'Israel_citys'
+ORGS = 'organisations'
+CITIES = 'israel_citys'
 
 def create_connection():
     return psycopg2.connect(
