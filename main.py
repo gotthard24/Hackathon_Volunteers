@@ -99,7 +99,15 @@ class Main():
        
     def city_input(self):
         userinput = is_valid_str(input("Enter your city\n> "))
-        userinput = ' '.join((word.capitalize() for word in userinput.split()))
+        userwords = userinput.split()
+        new_userwords = []
+        for word in userwords:
+            if word[0] == '‘' and len(word) > 1:
+                new_word = word[0] + word[1].upper() + word[2:]
+                new_userwords.append(new_word)
+            else:
+                new_userwords.append(word.capitalize())
+        userinput = ' '.join((word for word in new_userwords))
         return userinput
     
     def input_filter(self):
@@ -118,7 +126,8 @@ class Main():
             elif len(city) > 1:
                 print(f"Oops, there are more then one\n Maybe you meant any of this \n{city}") 
             else:     
-                print("One minute, Your request is being processed ")               
+                print("One minute, Your request is being processed ")   
+                print(user_city)           
                 cities = lonlendelon.make_result_list(user_city)
                 return cities
                     
@@ -133,7 +142,7 @@ class Main():
                     distance = 0
                     counter = 0
                     while distance < 0.2:                   
-                        final_cities.append(remove_special_characters(cities_by_distance[counter][0]))
+                        final_cities.append(cities_by_distance[counter][0])
                         distance = cities_by_distance[counter][1]
                         counter += 1                  
                     self.option_choice('vol',o.select_volunteers(final_cities, self.MILITARY),
