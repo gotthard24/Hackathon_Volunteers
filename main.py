@@ -111,25 +111,29 @@ class Main():
         return userinput
     
     def input_filter(self):
+        counter = 0
         while True:
             user_city = self.city_input()
-            city = o.select_city(user_city)
+            if counter == 0:
+                city = o.select_city(user_city)
+            else:
+                city = o.precise_select_city(user_city)
             if user_city == 'Exit':
                 break
             elif city == None:      
-                print(f"Oops, city {user_city} not found\n Maybe you meant any of this\n")              
+                print(f"Oops, city {user_city} not found\n Maybe you meant any of this?\n")              
                 query_parts = [user_city[i:i+3] for i in range(0, len(user_city), 3)]
                 for part in query_parts:
                     city = o.select_city(part)
                     if city != None:
-                       print(city) 
+                        print(city) 
             elif len(city) > 1:
-                print(f"Oops, there are more then one\n Maybe you meant any of this \n{city}") 
+                print(f"There are more then one\n You meant any of this? \n{city}") 
             else:     
-                print("One minute, Your request is being processed ")   
-                print(user_city)           
+                print("One minute, Your request is being processed ")            
                 cities = lonlendelon.make_result_list(user_city)
                 return cities
+            counter += 1
                     
     def main(self):
         while True:
