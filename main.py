@@ -122,7 +122,7 @@ class Main():
                 break
             elif city == None:      
                 print(f"Oops, city {user_city} not found\n Maybe you meant any of this?\n")              
-                query_parts = [user_city[i:i+3] for i in range(0, len(user_city), 3)]
+                query_parts = [user_city[:3],user_city[-4:-1]]
                 for part in query_parts:
                     city = o.select_city(part)
                     if city != None:
