@@ -1,8 +1,8 @@
-import config
+import configdk
 
 
 def find_latitude(city_name):
-    connection=config.create_connection()
+    connection=configdk.create_connection()
     cursor=connection.cursor()
     query = f"""SELECT latitude FROM israel_citys WHERE name = %s"""
     cursor.execute(query,(city_name,))
@@ -11,7 +11,7 @@ def find_latitude(city_name):
 
 
 def find_longitude(city_name):
-    connection=config.create_connection()
+    connection=configdk.create_connection()
     cursor=connection.cursor()
     query = f"""SELECT longitude FROM israel_citys WHERE name = %s"""
     cursor.execute(query ,(city_name,))
@@ -21,7 +21,7 @@ def find_longitude(city_name):
 
 def make_city_list():
     citylist=[]
-    connection=config.create_connection()
+    connection=configdk.create_connection()
     cursor=connection.cursor()
     query = f"""SELECT city FROM organisations"""
     cursor.execute(query)

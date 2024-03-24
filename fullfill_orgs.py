@@ -1,7 +1,7 @@
 import organisations  
 
 select_cities_query = f"""
-            SELECT * FROM {organisations.config.CITIES}
+            SELECT * FROM {organisations.configdk.CITIES}
         """      
 
 magen_david_query = organisations.create_insert_query('Magen David Adom','Health', 'https://www.mdais.org/en/volunteers','https://www.mdais.org/en/donation', 'Magen David Adom (MDA), Israel''s national emergency medical service and blood bank, offers a dynamic Volunteer Program that engages individuals in various aspects of lifesaving and community support. As a Magen David Adom volunteer, participants receive comprehensive training in emergency medical response, first aid, and disaster relief, enabling them to serve as vital assets during crises and everyday emergencies. Volunteers contribute their time and skills across a range of activities, including ambulance assistance, blood drives, community education, and humanitarian aid efforts. Through their dedication and commitment, Magen David Adom volunteers play a crucial role in safeguarding public health and safety, making a meaningful difference in communities across Israel.')

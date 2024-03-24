@@ -1,9 +1,9 @@
 import random
-import config
+import configdk
 
 def execute_query(query, parameters=None):
         results = []
-        connection = config.create_connection()
+        connection = configdk.create_connection()
         cursor = connection.cursor()       
         if parameters:
             cursor.execute(query, parameters)
@@ -20,7 +20,7 @@ def execute_query(query, parameters=None):
         
 def create_insert_query(name,topic,url,donate_url,description):
     query = f"""
-        INSERT INTO {config.ORGS} (name, city, topic, url, donate_url,discription)
+        INSERT INTO {configdk.ORGS} (name, city, topic, url, donate_url,discription)
         VALUES
             ('{name}', %s,'{topic}', '{url}','{donate_url}', '{description}');
         """
