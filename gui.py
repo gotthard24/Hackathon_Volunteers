@@ -273,5 +273,3 @@ call_main_menu()
 root.protocol("WM_DELETE_WINDOW", finish)
 
 root.mainloop()
-
-# print(print_donate_result())
