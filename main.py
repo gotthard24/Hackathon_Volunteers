@@ -133,6 +133,7 @@ class Main():
                 print("One minute, Your request is being processed ")            
                 cities = lonlendelon.make_result_list(user_city)
                 return cities
+                
             counter += 1
                     
     def main(self):
@@ -148,7 +149,8 @@ class Main():
                     while distance < 0.2:                   
                         final_cities.append(cities_by_distance[counter][0])
                         distance = cities_by_distance[counter][1]
-                        counter += 1                  
+                        counter += 1
+                        print(final_cities)                 
                     self.option_choice('vol',o.select_volunteers(final_cities, self.MILITARY),
                                              o.select_volunteers(final_cities, self.HEALTH),
                                              o.select_volunteers(final_cities, self.SOCIAL),
@@ -164,4 +166,4 @@ class Main():
                 print("\nThere is no such option\nPlease try again")
                 
 support = Main()
-support.main()
+# support.main()
